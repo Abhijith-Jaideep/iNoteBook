@@ -19,7 +19,7 @@ const AddNote = () => {
     return (
         <div>
 
-            <h1>Add A Note</h1>
+            <h1 style={{marginTop:'100px'}}>Add A Note</h1>
             <form className="my-3">
 
                 <div className="mb-3">
@@ -37,7 +37,7 @@ const AddNote = () => {
                     <textarea className="form-control" id="description" onChange={onChange}  name="description" rows="5"></textarea>
                 </div>
 
-                <button type="submit" onClick={handleClick} className="btn btn-dark">Add Note</button>
+                <button type="button" onClick={handleClick} className="btn btn-dark">Add Note</button>
             </form>
         </div>
     )

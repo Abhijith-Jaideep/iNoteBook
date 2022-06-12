@@ -36,15 +36,15 @@ const NoteState = (props) => {
         "auth-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjJhNDY1MDAyYTdkZTMzYjIzZDY1OWE2In0sImlhdCI6MTY1NDk0ODUxMH0.WQbbGgKr3s485O-ihUO4WAkkrRxyP_Ke20Z5gZZCfO8",
         "Content-Type": "application/json"
       },
-      body:JSON.stringify(note)
-      }
+      body: JSON.stringify(note)
+    }
     )
-      console.log(response)
+    console.log(response)
   }
 
-  const deleteNote = (id) => {
-    const response = fetch(`http://localhost:5000/api/notes/deletenote/${id}`,{
-      method:"DELETE",
+  const deleteNote = async (id) => {
+    const response = await fetch(`http://localhost:5000/api/notes/deletenote/${id}`, {
+      method: "DELETE",
       headers: {
         "auth-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjJhNDY1MDAyYTdkZTMzYjIzZDY1OWE2In0sImlhdCI6MTY1NDk0ODUxMH0.WQbbGgKr3s485O-ihUO4WAkkrRxyP_Ke20Z5gZZCfO8",
         "Content-Type": "application/json"
@@ -54,24 +54,24 @@ const NoteState = (props) => {
     console.log(response)
   }
 
-  const editNote = async (id,title,description,tag) => {
-      const note = {
-        title:title,
-        description:description,
-        tag:tag
-      }
+  const editNote = async (id, title, description, tag) => {
+    const note = {
+      title: title,
+      description: description,
+      tag: tag
+    }
 
-      const json = JSON.stringify(note)
+    const json = JSON.stringify(note)
 
-      const response = await fetch(`http://localhost:5000/api/notes/updatenote/${id}`,{
-        method:"POST",
-        headers: {
-          "auth-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjJhNDY1MDAyYTdkZTMzYjIzZDY1OWE2In0sImlhdCI6MTY1NDk0ODUxMH0.WQbbGgKr3s485O-ihUO4WAkkrRxyP_Ke20Z5gZZCfO8",
-          "Content-Type": "application/json"
-        },
-        body:json
-      })
-      console.log(response)
+    const response = await fetch(`http://localhost:5000/api/notes/updatenote/${id}`, {
+      method: "PUT",
+      headers: {
+        "auth-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjJhNDY1MDAyYTdkZTMzYjIzZDY1OWE2In0sImlhdCI6MTY1NDk0ODUxMH0.WQbbGgKr3s485O-ihUO4WAkkrRxyP_Ke20Z5gZZCfO8",
+        "Content-Type": "application/json"
+      },
+      body: json
+    })
+    console.log(await response.json())
   }
 
 
