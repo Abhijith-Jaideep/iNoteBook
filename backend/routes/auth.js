@@ -11,7 +11,7 @@ const JWT_secret= "Abhijith"
 Router.post('/createUser',
         body('name').isLength({min : 3}),
         body('email').isEmail(),
-        body('password').isLength({ min: 8 }),
+        body('password').isLength({ min : 8 }),
         async (req,res)=>{
 
         const errors = validationResult(req);
@@ -69,7 +69,7 @@ const data = {
 }
 
 const token = jwt.sign(data,JWT_secret)
-res.json({userdetaills:token})
+res.json({success:true,userdetails:token})
 
 })
 

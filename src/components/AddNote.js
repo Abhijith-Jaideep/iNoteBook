@@ -19,7 +19,7 @@ const AddNote = () => {
     return (
         <div>
 
-            <h1 style={{marginTop:'100px'}}>Add A Note</h1>
+            <h1 >Add A Note</h1>
             <form className="my-3">
 
                 <div className="mb-3">
